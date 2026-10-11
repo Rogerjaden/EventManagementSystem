@@ -27,7 +27,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public Object register(@Valid @RequestBody CreateUserDto createUserDto){
+    public Object register(@Valid @RequestBody CreateUserDto createUserDto) throws RuntimeException{
         return userService.register(createUserDto);
     }
 

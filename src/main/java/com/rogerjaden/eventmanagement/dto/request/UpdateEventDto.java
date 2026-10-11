@@ -2,6 +2,7 @@ package com.rogerjaden.eventmanagement.dto.request;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -11,7 +12,7 @@ public class UpdateEventDto {
 
     private LocalDateTime startTime;
 
-    private double price;
+    private BigDecimal price;
 
     private int remainingSeats;
 

@@ -7,7 +7,7 @@ import com.rogerjaden.eventmanagement.dto.response.UserResponse;
 import java.util.Map;
 
 public interface AuthService {
-     UserResponse register(CreateUserDto createUserDto);
+     UserResponse register(CreateUserDto createUserDto) throws RuntimeException;
 
      Map<String,String> login(LoginUserDto loginUserDto);
 }

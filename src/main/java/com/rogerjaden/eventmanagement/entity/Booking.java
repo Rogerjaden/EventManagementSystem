@@ -4,11 +4,13 @@ import com.rogerjaden.eventmanagement.entity.enums.TicketStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class Bookings {
+@Table(name = "bookings")
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -21,9 +23,7 @@ public class Bookings {
     @JoinColumn(name = "event_id")
     private Event event;
 
-    private String title;
-    private LocalDateTime startTime;
-    private double price;
+    private BigDecimal price;
     private int seatCount;
     @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;

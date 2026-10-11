@@ -46,7 +46,14 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public UserResponse register(CreateUserDto createUserDto) {
+    public UserResponse register(CreateUserDto createUserDto) throws RuntimeException{
+        if (userRepository.existsByEmail(createUserDto.getEmail())) {
+            throw new RuntimeException("Email already registered");
+        }
+
+        if (userRepository.existsByPhone(createUserDto.getPhone())) {
+            throw new RuntimeException("Phone already registered");
+        }
         User user = userMapper.toEntity(createUserDto);
         user.setPassword(passwordEncoder.encode(createUserDto.getPassword()));
         user.setRole(Role.USER);

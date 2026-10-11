@@ -40,7 +40,7 @@ public class SecurityConfig {
                                 "/webjars/**").permitAll()
                         .anyRequest().authenticated())
                 //.formLogin(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults())
+                //.httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

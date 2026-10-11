@@ -5,6 +5,7 @@ import com.rogerjaden.eventmanagement.entity.enums.EventStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -22,8 +23,12 @@ public class Event {
     private Category category;
 
     private LocalDateTime startTime;
-    private double price;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal price;
     private int remainingSeats;
+
+    @Column(name = "banner_url")
+    private String bannerUrl;
 
     @ManyToOne
     @JoinColumn(name = "organizer_id")
